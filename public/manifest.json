@@ -1,25 +1,32 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Horizon Christian School Extension",
-  "version": "2.9",
+  "version": "3.1",
   "description": "This extension will give students and teachers links to horizon sites",
   "permissions": [
     "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
     "https://www.google.com/*",
     "https://www.youtube.com/*",
     "https://youtube.com/*"
   ],
   "background": {
-    "scripts": ["static/js/background.js"]
+    "service_worker": "static/js/background.js"
   },
-  "web_accessible_resources" : [ 
-    "images/*.png" 
-  ],
+  "web_accessible_resources" : [{
+    "resources": ["images/yt.png"],
+    "matches": ["https://youtube.com/*","https://www.youtube.com/*"]
+  },{
+    "resources": ["images/logo.png"],
+    "matches": ["https://www.google.com/*","https://google.com/*"]
+  }],
   "icons": {
     "192": "icon.png"
   },
-  "browser_action": {
+  "action": {
     "default_icon": {
       "192": "icon.png"
     },

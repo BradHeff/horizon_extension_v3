@@ -1,36 +1,35 @@
-var injected = false;
 
-chrome.tabs.onActivated.addListener(tab => {
-    
-    chrome.tabs.onUpdated.addListener(function(activeInfo) {getActivatedTab();});
-    function getActivatedTab(){
-        chrome.tabs.query({'active': true, 'currentWindow': true}, function (tabs) {
-            try{
-                if(tabs[0]!==undefined){
-                
-                    if(/^https:\/\/www\.google/.test(tabs[0].url)){
-                        chrome.tabs.insertCSS(null, {file: 'main.css'});
-                        chrome.tabs.executeScript(null, {file: 'foreground.js'}, () => {
-                            console.log("I injected")
-                            injected = true;
-                        });        
-                    }
-                    if(/^https:\/\/www\.youtube/.test(tabs[0].url) || /^https:\/\/youtube/.test(tabs[0].url)){
-                        chrome.tabs.insertCSS(null, {file: 'yt.css'});
-                        chrome.tabs.executeScript(null, {file: 'foreground.js'}, () => {
-                            console.log("I injected")
-                            injected = true;
-                        });        
-                    }
-                }
+chrome.tabs.onActivated.addListener(async function()  {
+    async function getCurrentTab() {
+        let queryOptions = { active: true, currentWindow: true };
+        let tabs = await chrome.tabs.query(queryOptions);
+        return tabs[0];
+    }
+    let tab = await getCurrentTab();
+    chrome.tabs.onUpdated.addListener(async function() {
+        try{
+            if(/^https:\/\/www\.google/.test(tab.url)){
+                chrome.scripting.insertCSS({
+                    target: { tabId: tab.id },
+                    files: ["main.css"]
+                });
+                chrome.scripting.executeScript({
+                    target: {tabId: tab.id},
+                    files: ['foreground.js']
+                });
             }
-            catch(err){
-                setTimeout(function() {
-                    if (!injected) {
-                        getActivatedTab();
-                    }
-                },100);
+            if(/^https:\/\/www\.youtube/.test(tab.url) || /^https:\/\/youtube/.test(tab.url)){
+                chrome.scripting.insertCSS({
+                    target: { tabId: tab.id },
+                    files: ["yt.css"]
+                });
+                chrome.scripting.executeScript({
+                    target: {tabId: tab.id},
+                    files: ['foreground.js']
+                });
             }
-        })
-    }       
+        }catch(err){
+            console.log(err)
+        }
+    });
 });

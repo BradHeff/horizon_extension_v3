@@ -1,8 +1,8 @@
 // ===========================================================
 //                 REPLACEMENT LOGOS
 // ===========================================================
-var url = chrome.extension.getURL('images/logo.png');
-var yturl = chrome.extension.getURL('images/yt.png');
+var url = chrome.runtime.getURL('images/logo.png');
+var yturl = chrome.runtime.getURL('images/yt.png');
 
 // ===========================================================
 //                 GOOGLE LOGO
