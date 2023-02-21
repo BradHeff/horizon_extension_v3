@@ -55,45 +55,54 @@ const Student = () => {
 
 const Teacher = () => {
     return (
-        <ul className="list-group list-group-flush">
-            <li className="list-group-item d-flex align-items-center">
-                <img className="mr-2" src={canvas} alt="HCS" /><a href="https://canvas.horizon.sa.edu.au" rel="noreferrer" target="_blank">Canvas</a>
-            </li>    
-            <li className="list-group-item d-flex align-items-center">
-            <img className="mr-2" src={edupage} alt="HCS" height="16px" width="16px" /><a href="https://horizoncs.edupage.org/" rel="noreferrer" target="_blank">Edupage</a>
-            </li>
+        <div className='d-flex justify-content-center'>
+            <ul className="list-group list-group-flush">
+                <li className="list-group-item d-flex align-items-center">
+                    <img className="mr-2" src={canvas} alt="HCS" /><a href="https://canvas.horizon.sa.edu.au" rel="noreferrer" target="_blank">Canvas</a>
+                </li>    
+                <li className="list-group-item d-flex align-items-center">
+                    <img className="mr-2" src={edupage} alt="HCS" height="16px" width="16px" /><a href="https://horizoncs.edupage.org/" rel="noreferrer" target="_blank">Edupage</a>
+                </li>
 
-            <li className="list-group-item d-flex align-items-center">
-            <img className="mr-2" src={pcs} alt="HCS" height="16px" width="16px" /><a href="https://spider.horizon.sa.edu.au/" rel="noreferrer" target="_blank">PCSchools</a>
-            </li>
+                <li className="list-group-item d-flex align-items-center">
+                    <img className="mr-2" src={pcs} alt="HCS" height="16px" width="16px" /><a href="https://spider.horizon.sa.edu.au/" rel="noreferrer" target="_blank">PCSchools</a>
+                </li>
 
-            <li className="list-group-item d-flex align-items-center">
-            <img className="mr-2" src={outlook} alt="HCS" height="16px" width="16px" /><a href="https://outlook.office365.com" rel="noreferrer" target="_blank">Outlook</a>
-            </li>
-            <li className="list-group-item d-flex align-items-center">
-            <img className="mr-2" src={gcal} alt="HCS" height="16px" width="16px" /><a href="https://calendar.google.com/" rel="noreferrer" target="_blank">Google Calendar</a>
-            </li>
-            <li className="list-group-item d-flex align-items-center">
-            <img className="mr-2" src={daybook} alt="HCS" height="16px" width="16px" /><a href="https://docs.google.com/document/d/1Sgu-3RMNhVYSMuxpoOIR6PlLJXGbs1gcAgxFSVVkgh8/edit" rel="noreferrer" target="_blank">Daybook</a>
-            </li>
-            <li className="list-group-item d-flex align-items-center">
-            <img className="mr-2" src={classwize} alt="HCS" height="16px" width="16px" /><a href="https://classroom.au-1.familyzone.io/login" rel="noreferrer" target="_blank">Classwize Login</a>
-            </li>
-            <li className="list-group-item d-flex align-items-center">
-            <img className="mr-2" src={naplan} alt="HCS" height="16px" width="16px" /><a href="https://administration.assessform.edu.au/auth/login" rel="noreferrer" target="_blank">Naplan Login</a>
-            </li>
-        </ul>
+                <li className="list-group-item d-flex align-items-center">
+                    <img className="mr-2" src={outlook} alt="HCS" height="16px" width="16px" /><a href="https://outlook.office365.com" rel="noreferrer" target="_blank">Outlook</a>
+                </li>
+            </ul>
+            <ul className="list-group list-group-flush">
+                <li className="list-group-item d-flex align-items-center">
+                    <img className="mr-2" src={gcal} alt="HCS" height="16px" width="16px" /><a href="https://calendar.google.com/" rel="noreferrer" target="_blank">Google Calendar</a>
+                </li>
+                <li className="list-group-item d-flex align-items-center">
+                    <img className="mr-2" src={daybook} alt="HCS" height="16px" width="16px" /><a href="https://docs.google.com/document/d/1Sgu-3RMNhVYSMuxpoOIR6PlLJXGbs1gcAgxFSVVkgh8/edit" rel="noreferrer" target="_blank">Daybook</a>
+                </li>
+                <li className="list-group-item d-flex align-items-center">
+                    <img className="mr-2" src={classwize} alt="HCS" height="16px" width="16px" /><a href="https://classroom.au-1.familyzone.io/login" rel="noreferrer" target="_blank">Classwize Login</a>
+                </li>
+                <li className="list-group-item d-flex align-items-center">
+                    <img className="mr-2" src={naplan} alt="HCS" height="16px" width="16px" /><a href="https://administration.assessform.edu.au/auth/login" rel="noreferrer" target="_blank">Naplan Login</a>
+                </li>
+            </ul>
+        </div>
     );
 }
 
 const Wifi = () => {
     return (
-        <div className='details'>
+        <div className='details pt-3'>
             <ul>
-                <li>Connect to Wi-Fi named <span>HCS-Connect</span> with password <span>Horizon2023!</span></li>
-                <li>Visit <a href="https://login.syd-1.linewize.net/">Linewize Login</a> to sign into network</li>
-                <li>If you still experience problems, please visit IT Office for help.</li>
+                <li>Connect to Wi-Fi
+                    <ul className='pt-3'>
+                        <li className='mb-1'>Wi-Fi:    <span>HCS-Connect</span></li>
+                        <li className='mb-1'>Password: <span>Horizon2023!</span></li>
+                    </ul>
+                </li>
+                <li>Visit <a href="https://login.syd-1.linewize.net/">Linewize Login</a> to sign into network</li>                
             </ul>
+            <p>If you still experience problems, please visit IT Office for help.</p>
         </div>
     );
 }
