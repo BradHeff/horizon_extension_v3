@@ -5,12 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 a {
   color: #39554a;
 }
@@ -18,20 +21,25 @@ a {
 a:hover {
   color: #fbbc1a;
 }
+
 .tab-content {
   padding-top: 10px;
 }
+
 .list-group-item {
   border: none;
   margin-bottom: 10px;
 }
+
 .list-group-item a {
   text-decoration: none;
   color: #333;
 }
+
 .list-group-item:hover a {
   color: #fff;
 }
+
 .list-group-item:hover {
   background-color: #6c757d;
   color: #fff;
@@ -39,7 +47,7 @@ a:hover {
 }
 
 .popup {
-  width: 640px;
+  width: 680px;
   -moz-transition: all .3s ease-in-out;
   -ms-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
@@ -48,9 +56,31 @@ a:hover {
   padding: 10px;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
   color: #333;
   background-color: #bfd5e2;
   border-radius: 20px;
 
+}
+
+.details {
+  font-family: 'Poppins-Thin';
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.details li {
+  margin-bottom: 20px;
+}
+
+.details span {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.details a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #39554a;
 }
