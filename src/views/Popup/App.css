@@ -48,6 +48,7 @@ a:hover {
 
 .popup {
   width: 680px;
+  min-height: 200px;
   -moz-transition: all .3s ease-in-out;
   -ms-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;

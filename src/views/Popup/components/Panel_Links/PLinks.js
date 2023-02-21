@@ -8,6 +8,8 @@ import edupage from "../../assets/images/edupage.png";
 import gcal from "../../assets/images/calendar.png";
 import PAT from "../../assets/images/PAT.png";
 import classwize from "../../assets/images/classwize.png";
+import naplan from "../../assets/images/naplan.png";
+import daybook from "../../assets/images/googledocs.png";
 
 const PLinks = (props) => {
   return (
@@ -72,8 +74,14 @@ const Teacher = () => {
             <img className="mr-2" src={gcal} alt="HCS" height="16px" width="16px" /><a href="https://calendar.google.com/" rel="noreferrer" target="_blank">Google Calendar</a>
             </li>
             <li className="list-group-item d-flex align-items-center">
+            <img className="mr-2" src={daybook} alt="HCS" height="16px" width="16px" /><a href="https://docs.google.com/document/d/1Sgu-3RMNhVYSMuxpoOIR6PlLJXGbs1gcAgxFSVVkgh8/edit" rel="noreferrer" target="_blank">Daybook</a>
+            </li>
+            <li className="list-group-item d-flex align-items-center">
             <img className="mr-2" src={classwize} alt="HCS" height="16px" width="16px" /><a href="https://classroom.au-1.familyzone.io/login" rel="noreferrer" target="_blank">Classwize Login</a>
-            </li>            
+            </li>
+            <li className="list-group-item d-flex align-items-center">
+            <img className="mr-2" src={naplan} alt="HCS" height="16px" width="16px" /><a href="https://administration.assessform.edu.au/auth/login" rel="noreferrer" target="_blank">Naplan Login</a>
+            </li>
         </ul>
     );
 }
