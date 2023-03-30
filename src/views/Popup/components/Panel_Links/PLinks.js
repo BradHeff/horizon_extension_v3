@@ -83,7 +83,7 @@ const Wifi = () => {
         <div className='details'>
             <ul>
                 <li>Connect to Wi-Fi named <span>HCS-Connect</span> with password <span>Horizon2023!</span></li>
-                <li>Visit <a href="https://login.syd-1.linewize.net/">Linewize Login</a> to sign into network</li>
+                <li>Visit <a href="https://login.syd-1.linewize.net/" rel="noreferrer" target="_blank">Linewize Login</a> to sign into network</li>
                 <li>If you still experience problems, please visit IT Office for help.</li>
             </ul>
         </div>
