@@ -15,7 +15,7 @@ code {
 }
 
 a {
-  color: #39554a;
+  color: #1f922f;
 }
 
 a:hover {
@@ -24,11 +24,28 @@ a:hover {
 
 .tab-content {
   padding-top: 10px;
+  border-radius: 20px;
+}
+
+
+.details li {
+  margin-bottom: 10px;
+}
+
+.details span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fbbc1a;
 }
 
 .list-group-item {
   border: none;
   margin-bottom: 10px;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .list-group-item a {
@@ -43,11 +60,11 @@ a:hover {
 .list-group-item:hover {
   background-color: #6c757d;
   color: #fff;
-  border-radius: 20px;
 }
 
 .popup {
-  width: 680px;
+  width: 690px;
+  min-height: 360px;
   -moz-transition: all .3s ease-in-out;
   -ms-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
@@ -62,25 +79,4 @@ a:hover {
   background-color: #bfd5e2;
   border-radius: 20px;
 
-}
-
-.details {
-  font-family: 'Poppins-Thin';
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.details li {
-  margin-bottom: 20px;
-}
-
-.details span {
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.details a {
-  font-size: 14px;
-  font-weight: 400;
-  color: #39554a;
 }
