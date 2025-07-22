@@ -29,6 +29,10 @@ const PLinks = (props) => {
 };
 
 const Student = () => {
+	const customLinks = JSON.parse(
+		localStorage.getItem("customLinks_Students") || "[]"
+	);
+
 	return (
 		<ul className="list-group list-group-flush">
 			<li className="list-group-item d-flex align-items-center">
@@ -92,11 +96,63 @@ const Student = () => {
 					PAT Testing
 				</a>
 			</li>
+
+			{customLinks.length > 0 && (
+				<>
+					<li
+						className="list-group-item"
+						style={{
+							backgroundColor: "#f8f9fa",
+							fontWeight: "bold",
+							fontSize: "12px",
+							color: "#666",
+						}}
+					>
+						CUSTOM LINKS
+					</li>
+					{customLinks.map((link) => (
+						<li
+							key={link.id}
+							className="list-group-item d-flex align-items-center"
+						>
+							<div
+								className="mr-2"
+								style={{
+									width: "16px",
+									height: "16px",
+									backgroundColor: "#667eea",
+									borderRadius: "3px",
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+								}}
+							>
+								<span
+									style={{
+										color: "white",
+										fontSize: "10px",
+										fontWeight: "bold",
+									}}
+								>
+									🔗
+								</span>
+							</div>
+							<a href={link.url} rel="noreferrer" target="_blank">
+								{link.name}
+							</a>
+						</li>
+					))}
+				</>
+			)}
 		</ul>
 	);
 };
 
 const Teacher = () => {
+	const customLinks = JSON.parse(
+		localStorage.getItem("customLinks_Teachers") || "[]"
+	);
+
 	return (
 		<div
 			className="d-flex justify-content-center"
@@ -167,22 +223,6 @@ const Teacher = () => {
 				<li className="list-group-item d-flex align-items-center">
 					<img
 						className="mr-2"
-						src={outlook}
-						alt="HCS"
-						height="16px"
-						width="16px"
-					/>
-					<a
-						href="https://outlook.office365.com"
-						rel="noreferrer"
-						target="_blank"
-					>
-						Outlook
-					</a>
-				</li>
-				<li className="list-group-item d-flex align-items-center">
-					<img
-						className="mr-2"
 						src={naplan}
 						alt="HCS"
 						height="16px"
@@ -193,9 +233,63 @@ const Teacher = () => {
 						rel="noreferrer"
 						target="_blank"
 					>
-						Naplan Login
+						Naplan Admin
 					</a>
 				</li>
+
+				{customLinks.length > 0 && (
+					<>
+						<li
+							className="list-group-item"
+							style={{
+								backgroundColor: "#f8f9fa",
+								fontWeight: "bold",
+								fontSize: "12px",
+								color: "#666",
+							}}
+						>
+							CUSTOM LINKS
+						</li>
+						{customLinks
+							.slice(0, Math.ceil(customLinks.length / 2))
+							.map((link) => (
+								<li
+									key={link.id}
+									className="list-group-item d-flex align-items-center"
+								>
+									<div
+										className="mr-2"
+										style={{
+											width: "16px",
+											height: "16px",
+											backgroundColor: "#667eea",
+											borderRadius: "3px",
+											display: "flex",
+											alignItems: "center",
+											justifyContent: "center",
+										}}
+									>
+										<span
+											style={{
+												color: "white",
+												fontSize: "10px",
+												fontWeight: "bold",
+											}}
+										>
+											🔗
+										</span>
+									</div>
+									<a
+										href={link.url}
+										rel="noreferrer"
+										target="_blank"
+									>
+										{link.name}
+									</a>
+								</li>
+							))}
+					</>
+				)}
 			</ul>
 			<ul className="list-group list-group-flush">
 				<li className="list-group-item d-flex align-items-center">
@@ -212,6 +306,22 @@ const Teacher = () => {
 						target="_blank"
 					>
 						Google Calendar
+					</a>
+				</li>
+				<li className="list-group-item d-flex align-items-center">
+					<img
+						className="mr-2"
+						src={outlook}
+						alt="HCS"
+						height="16px"
+						width="16px"
+					/>
+					<a
+						href="https://outlook.office365.com"
+						rel="noreferrer"
+						target="_blank"
+					>
+						Outlook
 					</a>
 				</li>
 				<li className="list-group-item d-flex align-items-center">
@@ -246,6 +356,50 @@ const Teacher = () => {
 						Classwize Login
 					</a>
 				</li>
+
+				{customLinks.length > 0 &&
+					customLinks.length > Math.ceil(customLinks.length / 2) && (
+						<>
+							{customLinks
+								.slice(Math.ceil(customLinks.length / 2))
+								.map((link) => (
+									<li
+										key={link.id}
+										className="list-group-item d-flex align-items-center"
+									>
+										<div
+											className="mr-2"
+											style={{
+												width: "16px",
+												height: "16px",
+												backgroundColor: "#667eea",
+												borderRadius: "3px",
+												display: "flex",
+												alignItems: "center",
+												justifyContent: "center",
+											}}
+										>
+											<span
+												style={{
+													color: "white",
+													fontSize: "10px",
+													fontWeight: "bold",
+												}}
+											>
+												🔗
+											</span>
+										</div>
+										<a
+											href={link.url}
+											rel="noreferrer"
+											target="_blank"
+										>
+											{link.name}
+										</a>
+									</li>
+								))}
+						</>
+					)}
 			</ul>
 		</div>
 	);
@@ -264,40 +418,25 @@ const Wifi = () => {
 						<li style={{ marginBottom: "8px" }} className="mb-1">
 							Wi-Fi: <span>HCS-Connect</span>
 						</li>
+						<li style={{ marginBottom: "8px" }} className="mb-1">
+							Wi-Fi Clare: <span>HCSC-Connect</span>
+						</li>
 						<li className="mb-1">
-							Password: <span>Horizon2023!</span>
+							Password:{" "}
+							<span>Horizon{new Date().getFullYear()}!</span>
 						</li>
 					</ul>
 				</li>
 				<li style={{ marginBottom: "8px" }}>
 					Visit{" "}
 					<a
-						href="https://login.syd-1.linewize.net/"
+						href="https://login.linewize.net/"
 						rel="noreferrer"
 						target="_blank"
 					>
 						Linewize Login
 					</a>{" "}
 					to sign into network
-				</li>
-				<p
-					className="m-0"
-					style={{ fontWeight: 300, fontSize: "12px" }}
-				>
-					If you are on a new device (not managed by the school)
-					please follow the link below to download and install the
-					certificate and App
-				</p>
-				<li style={{ marginTop: "8px" }}>
-					Visit Horizon Certificate Portal to{" "}
-					<a
-						href="https://certs.horizon.sa.edu.au"
-						rel="noreferrer"
-						target="_blank"
-					>
-						Download
-					</a>{" "}
-					the Cert and App
 				</li>
 			</ul>
 			<p>
